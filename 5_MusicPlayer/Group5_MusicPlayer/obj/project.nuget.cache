@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6abJQFJM5VowPPMXY3b4tXsZVn/UIUqC4KUHFn5BFSWr2rWxunGLkWeDpJ4P4Xt696T+IyQaZTWWD4VVQzQjKQ==",
+  "dgSpecHash": "Qudwe5h5U7EU6TCJV579ql/Sx/KUF4a6XFAeNJJbByTL3MYc1s7cAxkHEM+Ty96nq3VlE2kZbmzE8f1mXlWaNA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\Desktop\\PRN221_Final\\PRN221Final\\5_MusicPlayer\\Group5_MusicPlayer\\Group5_MusicPlayer.csproj",
+  "projectFilePath": "C:\\Users\\Asus\\Desktop\\PRN_project\\5_MusicPlayer\\Group5_MusicPlayer\\Group5_MusicPlayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Group5_MusicPlayer.Data;
 using Group5_MusicPlayer.Models;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.Http;
 
 namespace Group5_MusicPlayer.Controllers
 {
@@ -23,12 +24,19 @@ namespace Group5_MusicPlayer.Controllers
         // GET: Songs
         public async Task<IActionResult> Index()
         {
-            var account = HttpContext.Session.GetString("Account");
-            if (account != "Admin")
-                return RedirectToAction("Index", "Home");
-
-            var musicPlayerDbContext = _context.Songs.Include(s => s.Author).Include(s => s.Category);
-            return View(await musicPlayerDbContext.ToListAsync());
+            int userId = int.Parse(HttpContext.Session.GetString("ID"));
+            if (userId != null && userId == 1)
+            {
+               var  musicPlayerAdmin = _context.Songs.Include(s => s.Author).Include(s => s.Category);
+                return View(await musicPlayerAdmin.ToListAsync());
+            }
+            else if (userId != null && userId != 1)
+            {
+                var musicPlayerUser = _context.Songs.Include(s => s.Author).Include(s => s.Category).Where(s=>s.AuthorId == userId);
+                return View(await musicPlayerUser.ToListAsync());
+            }
+           return RedirectToAction("Index", "Home");
+           
         }
 
         // GET: Songs/Details/5
@@ -78,8 +86,7 @@ namespace Group5_MusicPlayer.Controllers
         {
             ViewData["AuthorId"] = new SelectList(_context.Users, "UserId", "UserId");
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId");
-            var musicPlayerDbContext = _context.Songs.Include(s => s.Author).Include(s => s.Category);
-            return View(musicPlayerDbContext.ToListAsync());
+            return View();
         }
 
         // POST: Songs/Create
@@ -108,6 +115,11 @@ namespace Group5_MusicPlayer.Controllers
                 Console.WriteLine("fileName:", fileName, path);
                 song.AudioPath = fileName;
             }
+            if (song.AuthorId == 0)
+            {
+                int userId = int.Parse(HttpContext.Session.GetString("ID"));
+                song.AuthorId = userId;
+            }
                 _context.Add(song);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -116,6 +128,7 @@ namespace Group5_MusicPlayer.Controllers
         // GET: Songs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+
             if (id == null || _context.Songs == null)
             {
                 return NotFound();
@@ -136,32 +149,36 @@ namespace Group5_MusicPlayer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("SongId,Title,CategoryId,AuthorId,ImgPath,AudioPath,IsPrivate")] Song song)
+        public async Task<IActionResult> Edit(int? id, [Bind("SongId,Title,CategoryId,AuthorId,ImgPath,AudioPath,IsPrivate")] Song song, List<IFormFile> postedFiles)
         {
 
-            if (ModelState.IsValid)
+            string wwwPath = this.Environment.WebRootPath;
+            string contentPath = this.Environment.ContentRootPath;
+            string path = Path.Combine(this.Environment.WebRootPath, "Upload");
+            if (!Directory.Exists(path))
             {
-                try
-                {
-                    _context.Update(song);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!SongExists(song.SongId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                Directory.CreateDirectory(path);
             }
-            ViewData["AuthorId"] = new SelectList(_context.Users, "UserId", "UserId", song.AuthorId);
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", song.CategoryId);
-            return View(song);
+            List<string> uploadFiles = new List<string>();
+            foreach (IFormFile postedFile in postedFiles)
+            {
+                string fileName = Path.GetFileName(postedFile.FileName);
+                using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                    uploadFiles.Add(fileName);
+                }
+                Console.WriteLine("fileName:", fileName, path);
+                song.AudioPath = fileName;
+            }
+            if (song.AuthorId == 0)
+            {
+                int userId = int.Parse(HttpContext.Session.GetString("ID"));
+                song.AuthorId = userId;
+            }
+            _context.Update(song);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));           
         }
 
         // GET: Songs/Delete/5
@@ -201,7 +218,7 @@ namespace Group5_MusicPlayer.Controllers
                 {
                     foreach (SongList songList in song.SongLists)
                     {
-                        songList.SongId = 5;
+                        songList.SongId = 11;
                     }
                 }
                 _context.Songs.Remove(song);

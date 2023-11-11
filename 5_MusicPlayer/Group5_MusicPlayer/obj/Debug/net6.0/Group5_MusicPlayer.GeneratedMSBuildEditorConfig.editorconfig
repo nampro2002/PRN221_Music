@@ -9,149 +9,149 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Group5_MusicPlayer
 build_property.RootNamespace = Group5_MusicPlayer
-build_property.ProjectDir = C:\Users\Asus\Desktop\PRN221_Final\PRN221Final\5_MusicPlayer\Group5_MusicPlayer\
+build_property.ProjectDir = C:\Users\Asus\Desktop\PRN_project\5_MusicPlayer\Group5_MusicPlayer\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Asus\Desktop\PRN221_Final\PRN221Final\5_MusicPlayer\Group5_MusicPlayer
+build_property.MSBuildProjectDirectory = C:\Users\Asus\Desktop\PRN_project\5_MusicPlayer\Group5_MusicPlayer
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Authorizations/Login.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Authorizations/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yaXphdGlvbnNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Authorizations/Register.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Authorizations/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yaXphdGlvbnNcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Categories/Create.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Categories/Delete.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Categories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Categories/Details.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Categories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Categories/Edit.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Categories/Index.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Home/Index.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Home/Privacy.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Playlists/Create.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Playlists/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Playlists/Delete.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Playlists/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Playlists/Details.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Playlists/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Playlists/Edit.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Playlists/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Playlists/Index.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Playlists/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Shared/Error.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/SongLists/Create.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/SongLists/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ0xpc3RzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/SongLists/Delete.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/SongLists/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ0xpc3RzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/SongLists/Details.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/SongLists/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ0xpc3RzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/SongLists/Edit.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/SongLists/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ0xpc3RzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/SongLists/Index.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/SongLists/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ0xpc3RzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Songs/Create.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Songs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Songs/Delete.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Songs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Songs/Details.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Songs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Songs/Edit.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Songs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Songs/Index.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Songs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Songs/Upload.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Songs/Upload.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ3NcVXBsb2FkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Users/Create.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Users/Delete.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Users/Details.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Users/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Users/Edit.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Users/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Users/Index.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/_ViewImports.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/_ViewStart.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Desktop/PRN221_Final/PRN221Final/5_MusicPlayer/Group5_MusicPlayer/Views/Shared/_Layout.cshtml]
+[C:/Users/Asus/Desktop/PRN_project/5_MusicPlayer/Group5_MusicPlayer/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-djbuvpdhlp

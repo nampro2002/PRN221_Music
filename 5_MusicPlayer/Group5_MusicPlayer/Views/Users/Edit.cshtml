@@ -32,12 +32,31 @@
                 <label asp-for="Phone" class="control-label"></label>
                 <input asp-for="Phone" class="form-control" />
                 <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Role" class="control-label"></label>
-                <input asp-for="Role" class="form-control" />
-                <span asp-validation-for="Role" class="text-danger"></span>
-            </div>
+            </div>                         
+                  @inject IHttpContextAccessor HttpContextAccessor
+                @{
+                    var Account = HttpContextAccessor.HttpContext.Session.GetString("Account");
+                    if (Account != null)
+                    {
+                        if (Account.Equals("Admin"))
+                        {
+                        <div class="form-group">
+                            <label asp-for="Role" class="control-label"></label>
+                            <input asp-for="Role" class="form-control" />
+                            <span asp-validation-for="Role" class="text-danger"></span>
+                        </div>
+                        }
+                        else if (Account.Equals("User"))
+                        {
+                         <div class="form-group" style="display:none">
+                            <label asp-for="Role" class="control-label"></label>
+                            <input asp-for="Role" class="form-control" />
+                            <span asp-validation-for="Role" class="text-danger"></span>
+                        </div>
+                        }
+                    }
+                }                                            
+          
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

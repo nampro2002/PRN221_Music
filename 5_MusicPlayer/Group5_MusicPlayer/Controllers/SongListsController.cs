@@ -80,11 +80,19 @@ namespace Group5_MusicPlayer.Controllers
         {
             SongList songList = new SongList();
             int plId = int.Parse(HttpContext.Session.GetString("PlayListId"));
+            SongList songListExist = _context.SongsList.FirstOrDefault(s => s.PlaylistId == plId  && s.SongId == songid);
+            if (songListExist != null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
             songList.PlaylistId = plId;
             songList.AddedDate = DateTime.Now;
             songList.SongId = songid;
             _context.Add(songList);
             await _context.SaveChangesAsync();
+            }
             return RedirectToAction(nameof(Index));
         }
 

@@ -39,6 +39,7 @@ namespace Group5_MusicPlayer.Controllers
             //var songs = context.Songs.Include(s => s.Author).Include(s => s.Category).Where(s => s.IsPrivate == false);
             if (user.Role == 0)
             {
+                HttpContext.Session.SetString("ID", user.UserId.ToString());
                 HttpContext.Session.SetString("Account", "Admin");
                 return RedirectToAction("Index", "Home");
             }      

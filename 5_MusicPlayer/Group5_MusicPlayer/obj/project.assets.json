@@ -11439,11 +11439,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asus\\Desktop\\PRN221_Final\\PRN221Final\\5_MusicPlayer\\Group5_MusicPlayer\\Group5_MusicPlayer.csproj",
+      "projectUniqueName": "C:\\Users\\Asus\\Desktop\\PRN_project\\5_MusicPlayer\\Group5_MusicPlayer\\Group5_MusicPlayer.csproj",
       "projectName": "Group5_MusicPlayer",
-      "projectPath": "C:\\Users\\Asus\\Desktop\\PRN221_Final\\PRN221Final\\5_MusicPlayer\\Group5_MusicPlayer\\Group5_MusicPlayer.csproj",
+      "projectPath": "C:\\Users\\Asus\\Desktop\\PRN_project\\5_MusicPlayer\\Group5_MusicPlayer\\Group5_MusicPlayer.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asus\\Desktop\\PRN221_Final\\PRN221Final\\5_MusicPlayer\\Group5_MusicPlayer\\obj\\",
+      "outputPath": "C:\\Users\\Asus\\Desktop\\PRN_project\\5_MusicPlayer\\Group5_MusicPlayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

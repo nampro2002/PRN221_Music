@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="SongId" />
             <div class="form-group">
@@ -25,15 +25,26 @@
             </div>
             <div class="form-group">
                 <label asp-for="AuthorId" class="control-label"></label>
-                <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
-                <span asp-validation-for="AuthorId" class="text-danger"></span>
+                @inject IHttpContextAccessor HttpContextAccessor
+                @{
+
+                    int userId = int.Parse(HttpContextAccessor.HttpContext.Session.GetString("ID"));
+                    @if (userId == 1)
+                    {
+                        <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
+                    }
+                    else
+                    {
+                        <input asp-for="AuthorId" value=@userId disabled class="form-control" />
+                    }
+                }
             </div>
             <div class="form-group">
                 <label asp-for="ImgPath" class="control-label"></label>
                 <input asp-for="ImgPath" class="form-control" />
                 <span asp-validation-for="ImgPath" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display:none">
                 <label asp-for="AudioPath" class="control-label"></label>
                 <input asp-for="AudioPath" class="form-control" />
                 <span asp-validation-for="AudioPath" class="text-danger"></span>
@@ -43,9 +54,11 @@
                     <input class="form-check-input" asp-for="IsPrivate" /> @Html.DisplayNameFor(model => model.IsPrivate)
                 </label>
             </div>
+            <span>Select File:</span>
+            <input type="file" name="postedFiles" multiple />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+            </div>            
         </form>
     </div>
 </div>
