@@ -1,0 +1,76 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+}
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+        border: 3px solid #f1f1f1;
+        width: 600px;
+        margin: auto
+    }
+
+    label {
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+    span.password {
+        float: right;
+        padding-top: 16px;
+    }
+</style>
+<h2>Register Page</h2>
+<form method="post" asp-controller="Authorization" asp-action="Register">
+    <div class="container">
+
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <label for="confirmPassword"><b>Password</b></label>
+        <input type="password" placeholder="Re-enter Password" name="confirmPassword" required>
+
+        <label for="phone"><b>phone</b></label>
+        <input type="text" placeholder="Enter Phone" name="phone" required>
+
+        <span class="text-danger">
+            @ViewBag.MessageError
+        </span>
+        <button type="submit">Register</button>
+    </div>
+</form>

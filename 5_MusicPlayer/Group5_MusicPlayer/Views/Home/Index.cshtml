@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Group5_MusicPlayer.Models.Song>
+
+@{
+    ViewData["Title"] = "Homepage";
+}
+<style>
+    li {
+        padding: 10px;
+        margin: 0 10px;
+    }
+
+        li a {
+            text-decoration: none;
+        }
+</style>
+<h1>Home Page</h1>
+
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<div class="text-center">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul style="font-weight: 700" class="navbar-nav flex-grow-1">
+                    @{
+                        var Account = HttpContextAccessor.HttpContext.Session.GetString("Account");
+                        if (Account != null)
+                        {
+                            if (Account.Equals("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a style=" text-decoration: underline;" asp-area="" asp-action="Index" asp-controller="Users">User</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a style=" text-decoration: underline;" asp-area="" asp-action="Index" asp-controller="Songs">Song</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a style=" text-decoration: underline;" asp-area="" asp-action="Index" asp-controller="Categories">Category</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a style=" text-decoration: underline;" asp-action="Logout" asp-controller="Authorization">Log Out</a>
+                                </li>
+                            }
+                            else if (Account.Equals("User"))
+                            {
+                                var UserID = HttpContextAccessor.HttpContext.Session.GetString("ID");
+                                <li class="nav-item">
+                                    <a style=" text-decoration: underline;" asp-action="UserPlaylistDetails" asp-controller="Playlists" asp-route-userid="@UserID">To My Playlist</a>
+                                </li>                               
+                                <li class="nav-item">
+                                    <a style=" text-decoration: underline;" asp-action="Details" asp-controller="Users" asp-route-id="@UserID">User Information</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a style=" text-decoration: underline;" asp-action="Logout" asp-controller="Authorization">Log Out</a>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a style=" text-decoration: underline;" asp-action="Login" asp-controller="Authorization">Log In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style=" text-decoration: underline;" asp-action="Register" asp-controller="Authorization">Register</a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    Image
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author.UserName)
+                    </td>
+                    <td>
+                        <img src=@item.ImgPath width="200px" height="200px" />
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-controller="Songs" asp-route-id="@item.SongId">Play</a> |
+                        <a asp-action="Add" asp-controller="SongLists" asp-route-songid="@item.SongId">Add to Playlist</a> |
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

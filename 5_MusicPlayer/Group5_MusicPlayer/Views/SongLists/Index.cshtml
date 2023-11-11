@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Group5_MusicPlayer.Models.SongList>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AddedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Playlist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Playlist.PlaylistId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Song.Title)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SongListId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SongListId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SongListId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

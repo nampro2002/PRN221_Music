@@ -1,0 +1,11 @@
+﻿@model Group5_MusicPlayer.Models.Song
+
+@{
+    ViewData["Title"] = "Upload";
+}
+    <form asp-action="UploadFile" enctype="multipart/form-data">
+        <span>Select File:</span>
+        <input type="file" name="postedFiles" multiple/>
+        <input type="submit" value="Upload" asp-page-handler="Upload"/>
+        <br/>
+    </form>
