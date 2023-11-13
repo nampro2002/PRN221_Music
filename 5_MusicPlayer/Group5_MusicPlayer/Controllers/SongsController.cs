@@ -22,38 +22,47 @@ namespace Group5_MusicPlayer.Controllers
         }
 
         // GET: Songs
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search)
         {
             int userId = int.Parse(HttpContext.Session.GetString("ID"));
-            if (userId != null && userId == 1)
+            if (userId == 3)
             {
-               var  musicPlayerAdmin = _context.Songs.Include(s => s.Author).Include(s => s.Category);
+                var musicPlayerAdmin = _context.Songs.Include(s => s.Author).Include(s => s.Category);
+                if (!string.IsNullOrEmpty(search))
+                {
+                    var searchList = _context.Songs.Include(s => s.Author).Include(s => s.Category)
+                        .Where(s => s.IsPrivate == false && s.Title.ToLower().Contains(search.ToLower()));
+                    ViewBag.query = search;
+                    return View(searchList.ToList());
+                }
                 return View(await musicPlayerAdmin.ToListAsync());
             }
-            else if (userId != null && userId != 1)
+            else if (userId != 3)
             {
-                var musicPlayerUser = _context.Songs.Include(s => s.Author).Include(s => s.Category).Where(s=>s.AuthorId == userId);
+                var musicPlayerUser = _context.Songs.Include(s => s.Author).Include(s => s.Category).Where(s => s.AuthorId == userId);
                 return View(await musicPlayerUser.ToListAsync());
             }
-           return RedirectToAction("Index", "Home");
-           
+            return RedirectToAction("Index", "Home");
+
         }
 
         // GET: Songs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Songs == null)
-            {
+            {               
                 return NotFound();
             }
-
             var song = await _context.Songs
                 .Include(s => s.Author)
                 .Include(s => s.Category)
                 .FirstOrDefaultAsync(m => m.SongId == id);
             if (song == null)
             {
-                return NotFound();
+                song = await _context.Songs
+                .Include(s => s.Author)
+                .Include(s => s.Category)
+                .FirstOrDefaultAsync(m => m.SongId == 5);
             }
 
             return View(song);
@@ -77,15 +86,15 @@ namespace Group5_MusicPlayer.Controllers
                     postedFile.CopyTo(stream);
                     uploadFiles.Add(fileName);
                 }
-                Console.WriteLine("fileName:",fileName, path);
-            }            
+                Console.WriteLine("fileName:", fileName, path);
+            }
             return RedirectToPage("/Create"); ;
         }
         // GET: Songs/Create
         public IActionResult Create()
         {
-            ViewData["AuthorId"] = new SelectList(_context.Users, "UserId", "UserId");
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId");
+            ViewData["AuthorId"] = new SelectList(_context.Users, "UserId", "UserName");
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
             return View();
         }
 
@@ -120,9 +129,9 @@ namespace Group5_MusicPlayer.Controllers
                 int userId = int.Parse(HttpContext.Session.GetString("ID"));
                 song.AuthorId = userId;
             }
-                _context.Add(song);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            _context.Add(song);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Songs/Edit/5
@@ -139,8 +148,8 @@ namespace Group5_MusicPlayer.Controllers
             {
                 return NotFound();
             }
-            ViewData["AuthorId"] = new SelectList(_context.Users, "UserId", "UserId", song.AuthorId);
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", song.CategoryId);
+            ViewData["AuthorId"] = new SelectList(_context.Users, "UserId", "UserName", song.AuthorId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", song.CategoryId);
             return View(song);
         }
 
@@ -178,7 +187,7 @@ namespace Group5_MusicPlayer.Controllers
             }
             _context.Update(song);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));           
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Songs/Delete/5
@@ -218,19 +227,19 @@ namespace Group5_MusicPlayer.Controllers
                 {
                     foreach (SongList songList in song.SongLists)
                     {
-                        songList.SongId = 11;
+                        songList.SongId = 5;
                     }
                 }
                 _context.Songs.Remove(song);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SongExists(int id)
         {
-          return (_context.Songs?.Any(e => e.SongId == id)).GetValueOrDefault();
+            return (_context.Songs?.Any(e => e.SongId == id)).GetValueOrDefault();
         }
     }
 }

@@ -5,10 +5,13 @@
 }
 
 <h1>Index</h1>
-
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form class="d-flex" method="get" asp-action="Index">
+    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="search" value="@ViewBag.query">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
 <table class="table">
     <thead>
         <tr>

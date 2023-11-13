@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Group5_MusicPlayer.styles.css" asp-append-version="true" />
 </head>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -18,13 +20,57 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1" style="width: 80%">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        @{
+                            var Account = HttpContextAccessor.HttpContext.Session.GetString("Account");
+                            if (Account != null)
+                            {
+                                if (Account.Equals("Admin"))
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-action="Index" asp-controller="Users">User</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-action="Index" asp-controller="Songs">Song</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-action="Index" asp-controller="Categories">Category</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-action="Logout" asp-controller="Authorization">Log Out</a>
+                                    </li>
+                                }
+                                else if (Account.Equals("User"))
+                                {
+                                    var UserID = HttpContextAccessor.HttpContext.Session.GetString("ID");
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-action="UserPlaylistDetails" asp-controller="Playlists" asp-route-userid="@UserID">To My Playlist</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-action="Index" asp-controller="Songs">My Songs</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-action="Details" asp-controller="Users" asp-route-id="@UserID">User Information</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-action="Logout" asp-controller="Authorization">Log Out</a>
+                                    </li>
+                                }
+                            }
+                            else
+                            {
+                                <li class="nav-item" style="justify-self:end">
+                                    <a class="nav-link text-dark" asp-action="Login" asp-controller="Authorization">Log In</a>
+                                </li>
+                                <li class="nav-item" style="">
+                                    <a class="nav-link text-dark" asp-action="Register" asp-controller="Authorization">Register</a>
+                                </li>
+                            }
+                            
+                        }
                     </ul>
                 </div>
             </div>

@@ -27,7 +27,7 @@
                 @{
 
                     int userId = int.Parse(HttpContextAccessor.HttpContext.Session.GetString("ID"));
-                    @if(userId == 1)
+                    @if(userId == 3)
                     {
                         <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
                     }

@@ -9,6 +9,10 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form class="d-flex" method="get" asp-action="Index">
+    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="search" value="@ViewBag.query">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -47,13 +51,14 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Category.CategoryId)
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Author.UserId)
+                    @Html.DisplayFor(modelItem => item.Author.UserName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ImgPath)
+                    <img src="@Html.DisplayFor(modelItem => item.ImgPath)"
+                         width="80px" height="60px" style="object-fit: cover;" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.AudioPath)

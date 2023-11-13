@@ -25,12 +25,22 @@ namespace Group5_MusicPlayer.Controllers
         // GET: SongLists
         public async Task<IActionResult> Index()
         {
-            //var account = HttpContext.Session.GetString("Account");
-            //if (account != "Admin")
-            //    return RedirectToAction("Index", "Home");
-            int playlistId = int.Parse(HttpContext.Session.GetString("PlayListId"));
-            var musicPlayerDbContext = _context.SongsList.Include(s => s.Playlist).Include(s => s.Song);
-            return View(await musicPlayerDbContext.ToListAsync());        
+            var adminSonglist = _context.SongsList.Include(s => s.Playlist).Include(s => s.Song);
+            var account = HttpContext.Session.GetString("Account");
+            var rawPlaylistId = HttpContext.Session.GetString("PlayListId");
+            //Not Logged in
+            if (string.IsNullOrEmpty(account.Trim()))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            //App User
+            if (!string.IsNullOrEmpty(rawPlaylistId.Trim()))
+            {
+                int playlistId = int.Parse(rawPlaylistId.Trim());
+                var userSongList  = _context.SongsList.Include(s => s.Song).Include(s => s.Playlist).ThenInclude(p => p.User).Where(s => s.PlaylistId == playlistId);
+                return View(await userSongList.ToListAsync());
+            }
+            return View(await adminSonglist.ToListAsync());
         }
 
 
@@ -73,25 +83,25 @@ namespace Group5_MusicPlayer.Controllers
             songList.PlaylistId = plId;
             songList.AddedDate = DateTime.Now;
             _context.Add(songList);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> Add(int songid)
         {
             SongList songList = new SongList();
             int plId = int.Parse(HttpContext.Session.GetString("PlayListId"));
-            SongList songListExist = _context.SongsList.FirstOrDefault(s => s.PlaylistId == plId  && s.SongId == songid);
+            SongList songListExist = _context.SongsList.FirstOrDefault(s => s.PlaylistId == plId && s.SongId == songid);
             if (songListExist != null)
             {
                 return RedirectToAction(nameof(Index));
             }
             else
             {
-            songList.PlaylistId = plId;
-            songList.AddedDate = DateTime.Now;
-            songList.SongId = songid;
-            _context.Add(songList);
-            await _context.SaveChangesAsync();
+                songList.PlaylistId = plId;
+                songList.AddedDate = DateTime.Now;
+                songList.SongId = songid;
+                _context.Add(songList);
+                await _context.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
         }
@@ -185,14 +195,14 @@ namespace Group5_MusicPlayer.Controllers
             {
                 _context.SongsList.Remove(songList);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SongListExists(int id)
         {
-          return (_context.SongsList?.Any(e => e.SongListId == id)).GetValueOrDefault();
+            return (_context.SongsList?.Any(e => e.SongListId == id)).GetValueOrDefault();
         }
     }
 }

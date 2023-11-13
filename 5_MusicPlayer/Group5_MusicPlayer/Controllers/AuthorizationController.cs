@@ -20,6 +20,7 @@ namespace Group5_MusicPlayer.Controllers
         {
             return View("/Views/Authorizations/Login.cshtml");
         }
+
         [HttpPost]
         public IActionResult Login(string email, string password)
         {

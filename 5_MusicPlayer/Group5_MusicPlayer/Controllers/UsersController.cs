@@ -23,12 +23,18 @@ namespace Group5_MusicPlayer.Controllers
         }
 
         // GET: Users
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search)
         {
             var account = HttpContext.Session.GetString("Account");
             if (account != "Admin")
                 return RedirectToAction("Index", "Home");
-
+            if (!string.IsNullOrEmpty(search))
+            {
+                var searchList = _context.Users
+                    .Where(s => s.UserName.ToLower().Contains(search.ToLower()));
+                ViewBag.query = search;
+                return View(searchList.ToList());
+            }
             return _context.Users != null ?
                         View(await _context.Users.ToListAsync()) :
                         Problem("Entity set 'MusicPlayerDbContext.Users'  is null.");
@@ -65,6 +71,12 @@ namespace Group5_MusicPlayer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("UserId,UserName,Email,Password,Phone,Role")] User user)
         {
+            User emailCheck = _context.Users.FirstOrDefault(u => u.Email.ToLower().Equals(user.Email.ToLower()));
+            if (emailCheck != null)
+            {
+                ViewBag.error = "Oops! Email has been taken! Contact admin for information!";
+                return View();
+            }
             // Save the user to the database
             _context.Add(user);
             await _context.SaveChangesAsync();
@@ -105,6 +117,12 @@ namespace Group5_MusicPlayer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("UserId,UserName,Email,Password,Phone,Role")] User user)
         {
+            User emailCheck = _context.Users.FirstOrDefault(u => u.Email.ToLower().Equals(user.Email.ToLower()) && u.UserId != user.UserId);
+            if (emailCheck != null)
+            {
+                ViewBag.error = "Oops! Email has been taken! Contact admin for information!";
+                return View();
+            }
             try
             {
                 _context.Update(user);
@@ -118,7 +136,7 @@ namespace Group5_MusicPlayer.Controllers
                 }
                 else
                 {
-                    throw;
+                    return NotFound();
                 }
             }
             return RedirectToAction(nameof(Index));

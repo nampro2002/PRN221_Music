@@ -17,15 +17,26 @@ namespace Group5_MusicPlayer.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? search)
         {
-            var musicPlayerDbContext = _context.Songs.Include(s => s.Author).Include(s => s.Category).Where(s => s.IsPrivate == false);
+            if (!string.IsNullOrEmpty(search))
+            {
+                var searchList = _context.Songs.Include(s => s.Author).Include(s => s.Category)
+                    .Where(s => s.IsPrivate == false && s.Author.Role != 2 && s.Title.ToLower().Contains(search.ToLower()));
+                ViewBag.query = search;
+                return View(searchList.ToList());
+            }
+
+            var musicPlayerDbContext = _context.Songs.Include(s => s.Author).Include(s => s.Category).Where(s => s.IsPrivate == false && s.Author.Role != 2).OrderByDescending(s => s.SongId);
             return View(musicPlayerDbContext.ToList());
         }
         public IActionResult PlaySong(int? songId)
         {
             return RedirectToAction("Details", "Songs", new {id = songId });
         }
+
+
+
         public IActionResult Privacy()
         {
             return View();
